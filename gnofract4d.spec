@@ -5,8 +5,6 @@ Version:	1.5
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Group(de):	X11/Applikationen/Grafik
-Group(pl):	X11/Aplikacje/Grafika
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/gnofract4d/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://gnofract4d.sourceforge.net/
