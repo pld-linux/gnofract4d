@@ -1,22 +1,18 @@
 Summary:	gnofract4d - GNOME-based program to draw fractals
 Summary(pl):	gnofract4d - program do rysowania fraktali pod GNOME
 Name:		gnofract4d
-Version:	1.6
+Version:	2.0
 Release:	1
-License:	GPL
+License:	BSD
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/gnofract4d/%{name}-%{version}.tar.gz
-# Source0-md5:	b1ac3f960bb9036de8b1104e7e046005
-Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-AM_CXXFLAGS.patch
+# Source0-md5:	b8f84e9ef3d4dd831fc5791e3981c3e8
 URL:		http://gnofract4d.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	gettext-devel
-BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	gnome-libs-devel
+BuildRequires:	gtk+2-devel >= 2.0
 BuildRequires:	libstdc++-devel
-BuildRequires:	imlib-devel
+BuildRequires:	pkgconfig
+BuildRequires:	python-devel >= 2.2
+Requires:	python-pygtk-gtk >= 1:2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,24 +29,23 @@ tego samego, czterowymiarowego obiektu fraktalnego.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+
+echo 'Categories=Graphics;' >> gnofract4d.desktop
 
 %build
-rm -f missing
-%{__aclocal} -I macros
-%{__autoconf}
-%{__automake}
-%{__gettextize}
-%configure
-%{__make}
+CFLAGS="%{rpmcflags}" \
+python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	Graphicsdir=%{_applnkdir}/Graphics
+python setup.py install \
+	--root=$RPM_BUILD_ROOT \
+	--optimize=2
+
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+mv -f $RPM_BUILD_ROOT%{_datadir}/gnome/apps/Graphics/*.desktop \
+	$RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name} --with-gnome
 
@@ -59,8 +54,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README ChangeLog NEWS AUTHORS
+%doc COPYING README
 %attr(755,root,root) %{_bindir}/*
+%{_prefix}/lib/gnofract4d-2.0
+%{_datadir}/formulas
 %{_datadir}/maps
-%{_pixmapsdir}/*
-%{_applnkdir}/Graphics/gnofract4d.desktop
+%{_pixmapsdir}/gnofract4d
+%{_desktopdir}/gnofract4d.desktop
