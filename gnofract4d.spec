@@ -13,6 +13,7 @@ BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.2
+BuildRequires:	sed >= 4.0
 Requires:	python-pygtk-gtk >= 1:2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
