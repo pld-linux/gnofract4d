@@ -4,11 +4,11 @@ Name:		gnofract4d
 Version:	1.4
 Release:	1
 License:	GPL
-Group:		Networking/Utilities
-Group(de):	Netzwerkwesen/Werkzeuge
-Group(pl):	Sieciowe/Narzêdzia
+Group:		X11/Applications/Graphics
+Group(de):	X11/Applikationen/Grafik
+Group(pl):	X11/Aplikacje/Grafika
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/gnofract4d/%{name}-%{version}.tar.gz
-Patch0:		gnofract4d-DESTDIR.patch
+Patch0:		%{name}-DESTDIR.patch
 URL:		http://biot.com/gq/
 BuildRequires:	autoconf
 BuildRequires:	gettext-devel
@@ -21,9 +21,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr/X11R6
 
 %description
-Gnofract 4D is a Gnome-based program to draw fractals. What sets it apart
-from other fractal programs (and makes it "4D") is the way that it treats
-the Mandelbrot and Julia sets as different views of the same
+Gnofract 4D is a Gnome-based program to draw fractals. What sets it
+apart from other fractal programs (and makes it "4D") is the way that
+it treats the Mandelbrot and Julia sets as different views of the same
 four-dimensional fractal object.
 
 %description -l pl
