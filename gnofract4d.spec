@@ -1,16 +1,15 @@
 Summary:	gnofract4d - GNOME-based program to draw fractals
 Summary(pl):	gnofract4d - program do rysowania fraktali pod GNOME
 Name:		gnofract4d
-Version:	2.2
-Release:	2
+Version:	2.3
+Release:	1
 License:	BSD
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/gnofract4d/%{name}-%{version}.tar.gz
-# Source0-md5:	358a769076292dd443daec668621a18f
-# Source0-size:	424918
+# Source0-md5:	37d80797e14d4163c045dd131ed0a4a3
 URL:		http://gnofract4d.sourceforge.net/
 Patch0:		%{name}-desktop.patch
-BuildRequires:	gtk+2-devel >= 1:2.0
+BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.2
@@ -33,14 +32,12 @@ tego samego, czterowymiarowego obiektu fraktalnego.
 %setup -q
 %patch0 -p1
 
-echo 'Categories=Graphics;' >> gnofract4d.desktop
-
 %build
 sed -i -e "s#/usr/lib/%{name}-%{version}#%{_libdir}/%{name}-%{version}#g" \
 	setup.cfg gnofract4d
 
 CFLAGS="%{rpmcflags}" \
-python setup.py build
+	python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
