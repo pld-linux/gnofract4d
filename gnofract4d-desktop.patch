@@ -1,0 +1,17 @@
+--- gnofract4d-2.0/gnofract4d.desktop.orig	Sat Jul 17 02:47:28 2004
++++ gnofract4d-2.0/gnofract4d.desktop	Sat Jul 17 02:54:38 2004
+@@ -1,8 +1,12 @@
+ [Desktop Entry]
+ Name=Gnofract 4D Fractal Generator
++Name[pl]=Generator fraktali Gnofract 4D
+ Comment=Generate fractal images such as the Mandelbrot set
++Comment[pl]=Generowanie obrazów fraktali takich jak zbiór Mandelbrota
+ Exec=gnofract4d
+ Icon=gnofract4d/gnofract4d-logo.png
+-Terminal=0
++Terminal=false
+ Type=Application
+-
++Categories=GTK;Graphics;
++Encoding=UTF-8
++# vi: encoding=utf-8
