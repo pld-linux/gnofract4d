@@ -1,17 +1,24 @@
-diff -Nru gnofract4d-1.4/doc/Makefile.am gnofract4d-1.4.new/doc/Makefile.am
---- gnofract4d-1.4/doc/Makefile.am	Sun Feb 20 16:45:31 2000
-+++ gnofract4d-1.4.new/doc/Makefile.am	Tue Dec 19 05:17:02 2000
-@@ -29,11 +29,11 @@
- 	-cp gnofract4d.html $(distdir)
+--- gnofract4d-1.6/doc/Makefile.am~	Wed Aug  7 19:42:32 2002
++++ gnofract4d-1.6/doc/Makefile.am	Wed Aug  7 19:42:32 2002
+@@ -34,17 +34,17 @@
+ 	-cp gnofract4d/stylesheet-images/*.gif $(distdir)/gnofract4d/stylesheet-images
  
  install-data-local: gnofract4d.html
 -	$(mkinstalldirs) $(gnofract4d_helpdir)/images
+-	$(mkinstalldirs) $(gnofract4d_helpdir)/stylesheet-images
 +	$(mkinstalldirs) $(DESTDIR)$(gnofract4d_helpdir)/images
- 	-for file in $(srcdir)/gnofract4d/*.html $(srcdir)/gnofract4d/*.css $(srcdir)/*.gif ; do \
++	$(mkinstalldirs) $(DESTDIR)$(gnofract4d_helpdir)/stylesheet-images
+ 	-for file in $(srcdir)/gnofract4d/*.html $(srcdir)/gnofract4d/*.css $(srcdir)/*.png ; do \
  		basefile=`basename $$file`; \
  		echo $$basefile; \
 -		$(INSTALL_DATA) $(srcdir)/$$file $(gnofract4d_helpdir)/$$basefile; \
 +		$(INSTALL_DATA) $(srcdir)/$$file $(DESTDIR)$(gnofract4d_helpdir)/$$basefile; \
+ 	done
+ 	-for file in $(srcdir)/gnofract4d/stylesheet-images/*.gif ; do \
+ 		basefile=`basename $$file`; \
+ 		echo $$basefile; \
+-		$(INSTALL_DATA) $(srcdir)/$$file $(gnofract4d_helpdir)/stylesheet-images/$$basefile; \
++		$(INSTALL_DATA) $(srcdir)/$$file $(DESTDIR)$(gnofract4d_helpdir)/stylesheet-images/$$basefile; \
  	done
  
  gnofract4d.ps: gnofract4d.sgml
