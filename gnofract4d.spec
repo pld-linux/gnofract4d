@@ -18,7 +18,6 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	imlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 
 %description
 Gnofract 4D is a Gnome-based program to draw fractals. What sets it
