@@ -5,7 +5,7 @@ Version:	1.6
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/gnofract4d/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/gnofract4d/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-AM_CXXFLAGS.patch
 URL:		http://gnofract4d.sourceforge.net/
@@ -17,7 +17,6 @@ BuildRequires:	gnome-libs-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	imlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Gnofract 4D is a Gnome-based program to draw fractals. What sets it
