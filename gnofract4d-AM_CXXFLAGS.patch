@@ -1,8 +1,0 @@
---- gnofract4d-1.6/src/Makefile.am~	Wed Aug  7 21:18:20 2002
-+++ gnofract4d-1.6/src/Makefile.am	Wed Aug  7 21:18:20 2002
-@@ -41,4 +41,4 @@
- gnofract4d_LDADD = $(GNOME_LIBDIR) $(GTK_LIBS) \
- 	$(GNOMEUI_LIBS) $(INTLLIBS) $(PTHREAD_LIB)
- 
--CXXFLAGS = -g -O2 -Wall -D_REENTRANT
-+AM_CXXFLAGS = -D_REENTRANT
