@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/gnofract4d/%{name}-%{version}.tar.gz
+# Source0-md5:	b1ac3f960bb9036de8b1104e7e046005
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-AM_CXXFLAGS.patch
 URL:		http://gnofract4d.sourceforge.net/
