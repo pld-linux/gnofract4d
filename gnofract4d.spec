@@ -30,7 +30,7 @@ Gnofract 4D jest program do rysowania fraktali pod Gnome.
 
 %prep
 %setup -q
-#%patch -p1
+%patch -p1
 
 %build
 aclocal -I macros
@@ -47,16 +47,14 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Graphicsdir=%{_applnkdir}/Graphics
 
-gzip -9nf README ChangeLog NEWS AUTHORS
-
 %find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README ChangeLog NEWS AUTHORS
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/maps
 %{_pixmapsdir}/*
