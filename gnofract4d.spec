@@ -25,7 +25,10 @@ it treats the Mandelbrot and Julia sets as different views of the same
 four-dimensional fractal object.
 
 %description -l pl
-Gnofract 4D jest program do rysowania fraktali pod Gnome.
+Gnofract 4D jest program do rysowania fraktali pod Gnome. To, co
+odró¿nia ten go od innych programów do fraktali (i czyni go "4D"), to
+sposób, w jaki traktuje zbiory Mandelbrota i Julia - jako ró¿ne widoki
+tego samego, czterowymiarowego obiektu fraktalnego.
 
 %prep
 %setup -q
