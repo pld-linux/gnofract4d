@@ -11,6 +11,7 @@ Source0:	ftp://download.sourceforge.net/pub/sourceforge/gnofract4d/%{name}-%{ver
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://gnofract4d.sourceforge.net/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
@@ -34,7 +35,9 @@ Gnofract 4D jest program do rysowania fraktali pod Gnome.
 %patch -p1
 
 %build
-automake
+aclocal -I macros
+autoconf
+automake -a -c
 gettextize --copy --force
 %configure
 %{__make}
