@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/gnofract4d/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-AM_CXXFLAGS.patch
 URL:		http://gnofract4d.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -30,9 +31,11 @@ Gnofract 4D jest program do rysowania fraktali pod Gnome.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
+rm -f missing
 aclocal -I macros
 %{__autoconf}
 %{__automake}
