@@ -10,7 +10,7 @@ Source0:	http://dl.sourceforge.net/gnofract4d/%{name}-%{version}.tar.gz
 # Source0-size:	424918
 URL:		http://gnofract4d.sourceforge.net/
 Patch0:		%{name}-desktop.patch
-BuildRequires:	gtk+2-devel >= 2.0
+BuildRequires:	gtk+2-devel >= 1:2.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.2
