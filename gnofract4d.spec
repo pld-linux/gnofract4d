@@ -64,4 +64,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/formulas
 %{_datadir}/maps
 %{_pixmapsdir}/gnofract4d
+%{_pixmapsdir}/gnofract4d-logo.png
 %{_desktopdir}/gnofract4d.desktop
