@@ -1,5 +1,5 @@
 Summary:	gnofract4d - GNOME-based program to draw fractals
-Summary(pl):	gnofract4d - program do rysowania fraktali pod GNOME
+Summary(pl.UTF-8):   gnofract4d - program do rysowania fraktali pod GNOME
 Name:		gnofract4d
 Version:	2.13
 Release:	1
@@ -23,10 +23,10 @@ apart from other fractal programs (and makes it "4D") is the way that
 it treats the Mandelbrot and Julia sets as different views of the same
 four-dimensional fractal object.
 
-%description -l pl
+%description -l pl.UTF-8
 Gnofract 4D jest program do rysowania fraktali pod GNOME. To, co
-odr罂nia ten go od innych program體 do fraktali (i czyni go "4D"), to
-spos骲, w jaki traktuje zbiory Mandelbrota i Julia - jako r罂ne widoki
+odr贸偶nia ten go od innych program贸w do fraktali (i czyni go "4D"), to
+spos贸b, w jaki traktuje zbiory Mandelbrota i Julia - jako r贸偶ne widoki
 tego samego, czterowymiarowego obiektu fraktalnego.
 
 %prep
