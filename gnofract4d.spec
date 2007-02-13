@@ -1,5 +1,5 @@
 Summary:	gnofract4d - GNOME-based program to draw fractals
-Summary(pl.UTF-8):   gnofract4d - program do rysowania fraktali pod GNOME
+Summary(pl.UTF-8):	gnofract4d - program do rysowania fraktali pod GNOME
 Name:		gnofract4d
 Version:	2.13
 Release:	1
