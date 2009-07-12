@@ -1,12 +1,12 @@
 Summary:	gnofract4d - GNOME-based program to draw fractals
 Summary(pl.UTF-8):	gnofract4d - program do rysowania fraktali pod GNOME
 Name:		gnofract4d
-Version:	2.13
+Version:	3.11
 Release:	1
 License:	BSD
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/gnofract4d/%{name}-%{version}.tar.gz
-# Source0-md5:	51ad3719fa2490139fca91d3925b4ad0
+# Source0-md5:	c038702003c47fe58b7db1023302b855
 URL:		http://gnofract4d.sourceforge.net/
 Patch0:		%{name}-desktop.patch
 BuildRequires:	gtk+2-devel >= 1:2.0.0
@@ -47,22 +47,26 @@ python setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
-install -d $RPM_BUILD_ROOT%{_desktopdir}
-mv -f $RPM_BUILD_ROOT%{_datadir}/%{name}/*.desktop \
-	$RPM_BUILD_ROOT%{_desktopdir}
-
 %find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%update_desktop_database_post
+%update_mime_database
+
+%postun
+%update_desktop_database_post
+%update_mime_database
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc COPYING README
 %attr(755,root,root) %{_bindir}/*
-%{_libdir}/gnofract4d-%{version}
-%{_datadir}/formulas
-%{_datadir}/maps
+%{py_sitedir}/*fract*
+%{_datadir}/%{name}
+%{_datadir}/mime/packages/*
 %{_pixmapsdir}/gnofract4d
 %{_pixmapsdir}/gnofract4d-logo.png
 %{_desktopdir}/gnofract4d.desktop
