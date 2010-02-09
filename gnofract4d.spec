@@ -9,10 +9,11 @@ Source0:	http://dl.sourceforge.net/gnofract4d/%{name}-%{version}.tar.gz
 # Source0-md5:	c038702003c47fe58b7db1023302b855
 URL:		http://gnofract4d.sourceforge.net/
 Patch0:		%{name}-desktop.patch
-BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.2
+BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 BuildRequires:	sed >= 4.0
 Requires:	python-pygtk-gtk >= 1:2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
