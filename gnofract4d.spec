@@ -1,22 +1,21 @@
 Summary:	gnofract4d - GNOME-based program to draw fractals
 Summary(pl.UTF-8):	gnofract4d - program do rysowania fraktali pod GNOME
 Name:		gnofract4d
-Version:	3.11
-Release:	8
+Version:	4.3
+Release:	1
 License:	BSD
 Group:		X11/Applications/Graphics
-Source0:	http://dl.sourceforge.net/gnofract4d/%{name}-%{version}.tar.gz
-# Source0-md5:	c038702003c47fe58b7db1023302b855
-URL:		http://gnofract4d.sourceforge.net/
+Source0:	https://github.com/fract4d/gnofract4d/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	d815353c682eab9787e2fdad26f625ba
+URL:		https://fract4d.github.io/gnofract4d/
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-libpng.patch
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel >= 2.2
-BuildRequires:	python-modules
+BuildRequires:	python3-devel
+BuildRequires:	python3-modules
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sed >= 4.0
-Requires:	python-pygtk-gtk >= 1:2.0
+Requires:	python3-pygobject3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,23 +33,17 @@ tego samego, czterowymiarowego obiektu fraktalnego.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 sed -i -e "s#/usr/lib/%{name}-%{version}#%{_libdir}/%{name}-%{version}#g" \
 	setup.cfg gnofract4d
 
-CFLAGS="%{rpmcflags}" \
-	python setup.py build
+%py3_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-python setup.py install \
-	--root=$RPM_BUILD_ROOT \
-	--optimize=2
-
-%find_lang %{name} --with-gnome
+%py3_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,13 +56,13 @@ rm -rf $RPM_BUILD_ROOT
 %update_desktop_database_post
 %update_mime_database
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
-%doc COPYING README
+%doc LICENSE README.md
 %attr(755,root,root) %{_bindir}/*
-%{py_sitedir}/*fract*
+%{py3_sitedir}/*fract*
 %{_datadir}/%{name}
 %{_datadir}/mime/packages/*
-%{_pixmapsdir}/gnofract4d
-%{_pixmapsdir}/gnofract4d-logo.png
+%{_pixmapsdir}/gnofract4d.png
 %{_desktopdir}/gnofract4d.desktop
+%{_iconsdir}/hicolor/*x*/apps/gnofract4d.png
